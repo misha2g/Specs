@@ -1,25 +1,26 @@
 Pod::Spec.new do |s|
-  s.name     = 'TestFlightSDK'
-  s.version  = '1.2'
-  s.license      = {
-    :type => 'Commercial',
+  s.name = "Google-AdMob-Ads-SDK"
+  s.version = "6.8.0"
+  s.summary = "Google AdMob Ads SDK."
+  s.description = "The Google AdMob Ads SDK allows developers to easily incorporate mobile-friendly text and image banners as well as rich, full-screen web apps known as interstitials."
+  s.homepage = "https://developers.google.com/mobile-ads-sdk/docs/"
+
+  s.license = {
+    :type => 'Copyright',
     :text => <<-LICENSE
-              All text and design is copyright © 2010-2012 TestFlight App, Inc.
-
-              All rights reserved.
-
-              https://testflightapp.com/tos/
-    LICENSE
+Copyright 2009 - 2012 Google, Inc. All rights reserved.
+LICENSE
   }
-  s.summary  = 'TestFlightSDK for over-the-air beta testing and crash reporting.'
-  s.homepage = 'http://www.testflightapp.com'
-  s.author   = { 'TestFlight' => 'support@testflightapp.com' }
-  s.source   = { :http => 'https://d3fqheiq7nlyrx.cloudfront.net/sdk-downloads/TestFlightSDK1.2.zip' }
+  s.author = 'Google Inc.'
+  s.source = { :path => "http://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip" }
   s.platform = :ios
-  s.source_files = 'TestFlight.h'
-  s.preserve_paths = 'libTestFlight.a'
-  s.library = 'TestFlight', 'z'
-  s.framework = 'UIKit'
-  s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/TestFlightSDK"' }
+
+  s.source_files = 'GoogleAdMobAdsSdkiOS-6.8.0/*.h', 'GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/DoubleClick/*.h'
+  s.preserve_paths = 'GoogleAdMobAdsSdkiOS-6.8.0'
+
+  s.framework = %w{AdSupport AudioToolbox AVFoundation CoreGraphics CoreTelephony MessageUI StoreKit SystemConfiguration}
+  s.library = 'GoogleAdMobAds'
+  s.libraries = 'GoogleAdMobAdsSdkiOS-6.8.0/libGoogleAdMobAds.a'
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-AdMob-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0"' }
   s.requires_arc = false
 end
